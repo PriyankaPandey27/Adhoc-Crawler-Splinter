@@ -2,11 +2,11 @@
 import sys
 from splinter import Browser
 import json, requests
-executable_path = {'executable_path':'/Users/z002n9g/Downloads/geckodriver'}
+executable_path = {'executable_path':'/Users/priyanka/Downloads/geckodriver'}
 inputFileStr = sys.argv[1]
-outputFile = open('/Users/z002n9g/Downloads/splinterOutput.tsv', 'a')
+outputFile = open('/Users/priyanka/Downloads/splinterOutput.tsv', 'a')
 
-proxyIP = 'modmcvpn.newtonx.red'
+proxyIP = '9.81.19.27'// tochange it
 proxyPort = 3128
 proxy_settings = {
     'network.proxy.type': 1,
@@ -30,14 +30,14 @@ def getFromRedsky():
 
 def getAvail(avail1, avail2):
     try:
-        r = requests.post('http://newtonweb.service.consul:8080/newton.web/service/availability/getavailabilitydata', data='')
+        r = requests.post('http://localhost:8080/example.web/service/availability/getavailabilitydata', data='')
         jsonData = json.loads(r.content)
         return jsonData
     except:
         return "INCONCLUSIVE"
 
 def getTemplate(tmpl):
-    templateFile = open('/Users/z002n9g/Downloads/templates.json', 'r')
+    templateFile = open('/Users/priyanka/Downloads/templates.json', 'r')
     templates = json.load(templateFile)
     templateFile.close()
     return templates[tmpl]
